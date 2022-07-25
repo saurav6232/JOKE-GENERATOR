@@ -1,0 +1,50 @@
+<!--
+made by spy coder
+
+If you like it, subscribe my channel! 😊
+Next day I upload full tutorials on youtube
+Don't forget to comment and share with your friends!----->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Random Joke Generator</title>
+    
+      <link rel="stylesheet" href="style2.css"/>
+  </head>
+  <body>
+      <div class="container">
+        <span>RANDOM JOKE GENERATOR </span>
+        <span2>&#128516;</span2>
+        
+        <p id="joke"></p>
+        <button id="btn">Get Random Joke</button>
+      </div>
+       <footer class="footer">
+ 
+      <a href="https://youtu.be/n_-OZnJNz5Q" target="_blank">Let,s learn</a>
+      
+    </div>
+    <script>
+    const jokeContainer = document.getElementById("joke");
+      const btn = document.getElementById("btn");
+      const url =
+        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+
+      let getJoke = () => {
+        jokeContainer.classList.remove("fade");
+        fetch(url)
+          .then((data) => data.json())
+          .then((item) => {
+            jokeContainer.textContent = `${item.joke}`;
+            jokeContainer.classList.add("fade");
+          });
+      };
+
+      btn.addEventListener("click", getJoke);
+      getJoke();
+ 
+     </script>
+  </body>
+</html>
